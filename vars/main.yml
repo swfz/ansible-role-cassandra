@@ -5,5 +5,4 @@ cassandra:
   src: /tmp
   tar_gz: https://archive.apache.org/dist/cassandra/{{ cassandra_version }}/{{ cassandra_archive }}
   env:
-    - 'export JAVA_HOME=/usr/java/default'
     - 'export PATH=\$PATH:/usr/local/cassandra/bin'

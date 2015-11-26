@@ -28,6 +28,3 @@
   when: exist_cassandra.stat.exists == false
   command: mv {{ cassandra.src }}/apache-cassandra-{{ cassandra_version }} /usr/local/cassandra
 
-- name: start cassandra
-  command: /usr/local/cassandra/bin/cassandra
-
