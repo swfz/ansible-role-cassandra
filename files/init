@@ -1,0 +1,23 @@
+# chkconfig: 345 99 1
+# description: cassandra
+# processname: cassandra
+#!/bin/sh
+
+CASS_BIN=/usr/local/cassandra/bin/cassandra
+CASS_PID=/var/run/cassandra.pid
+
+case "$1" in
+    start)
+        $CASS_BIN -p $CASS_PID
+        echo "Running Cassandra"
+        ;;
+    stop)
+        kill `cat $CASS_PID`
+        rm -f $CASS_PID
+        echo "Stopped Cassandra"
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+esac
+exit 0

@@ -28,3 +28,9 @@
   when: exist_cassandra.stat.exists == false
   command: mv {{ cassandra.src }}/apache-cassandra-{{ cassandra_version }} /usr/local/cassandra
 
+- name: copy init script
+  copy: src=init dest=/etc/init.d/cassandra mode=755 owner=root
+
+- name: set chkconfig
+  service: name=cassandra state=stopped runlevel=345 enabled=yes
+
